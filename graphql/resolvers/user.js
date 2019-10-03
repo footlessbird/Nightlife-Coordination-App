@@ -43,7 +43,11 @@ module.exports = {
       // check whether user exists or not
       const user = await User.findOne({ username });
       if (user) {
-        throw new Error("user already exists");
+        throw new UserInputError('username already exists', {
+          errors: {
+              username: 'username already exists'
+          }
+      })
       }
       // hash password
       password = await bcrypt.hash(password, 12);

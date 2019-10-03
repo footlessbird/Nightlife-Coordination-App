@@ -9,7 +9,8 @@ module.exports = gql`
     rating: Float
     price: String
     image_url: String
-    goings: Int
+    goings: [User]
+    goingCount: Int
   }
   type User {
     id: ID!

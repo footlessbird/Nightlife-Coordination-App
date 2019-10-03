@@ -25,8 +25,10 @@ module.exports = {
       });
 
       const finalRes = updatedYelp.map(biz => {
-        console.log(savedVenues);
+        // console.log(savedVenues);
+        // console.log("biz id", biz.id);
         savedVenues.forEach(venue => {
+          // console.log("venue yelp id", venue.yelp_id);
           if (biz.id === venue.yelp_id) {
             biz.goings.push(...venue.goings);
           }
@@ -57,7 +59,7 @@ module.exports = {
         const newBar = await Place.create({ yelp_id });
         await newBar.goings.push(user);
         const savedBar = await newBar.save();
-        console.log("NewVenue and Attendee: ", savedBar);
+        // console.log("NewVenue and Attendee: ", savedBar);
         return savedBar.goings.length;
       }
     }
@@ -68,9 +70,9 @@ function getSavedVenues() {
   // This returns venues with attendees and
   // returns the "refs" for User
   return Place.find({})
-    .populate("goings")
+    // .populate("goings") !impotant causes error goings not sync
     .then(venues => {
-      // console.log(venues)
+      console.log(venues)
       return venues;
     })
     .catch(err => console.log(err));

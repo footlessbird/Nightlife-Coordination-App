@@ -28,7 +28,7 @@ module.exports = {
         // console.log(savedVenues);
         // console.log("biz id", biz.id);
         savedVenues.forEach(venue => {
-          // console.log("venue yelp id", venue.yelp_id);
+          console.log("venue yelp id", venue.yelp_id);
           if (biz.id === venue.yelp_id) {
             biz.goings.push(...venue.goings);
           }

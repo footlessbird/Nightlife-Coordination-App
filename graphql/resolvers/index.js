@@ -15,5 +15,8 @@ module.exports = {
     Mutation: {
         ...userResolvers.Mutation,
         ...placeResolvers.Mutation
-    }
+    },
+    // Subscription: {
+    //     ...placeResolvers.Subscription
+    // }
 }

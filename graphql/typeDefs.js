@@ -27,4 +27,7 @@ module.exports = gql`
     login(username: String!, password: String!): User!
     go(yelp_id: String!): Int
   }
+  # type Subscription{
+  #   newGo: Bar!
+  # }
 `;
